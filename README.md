@@ -1,42 +1,104 @@
-# Vehicle Parking Reservation System
+**Parking Management System (C++ Console Application)**
 
-This is a simple vehicle parking reservation system implemented in C++. It allows users to manage the arrival, departure, and display of parked vehicles, along with calculating the total amount collected for parking.
+A role-based, file-persistent Parking Management System built in C++ for managing car and bike entries with automated fare calculation and secure login access.
 
-## Prerequisites
-- C++ compiler
-- IDE (Integrated Development Environment) or text editor
+This console application simulates a real-world parking facility with Admin and Staff dashboards, token-based vehicle tracking, rush-hour pricing, and persistent storage using file handling.
 
-## Instructions
+---
 
-### Compilation and Execution
-1. Clone the repository or download the source code files.
-2. Compile the source code using a C++ compiler.
-3. Run the compiled executable file.
+### 🚗 Core Features
 
-### Usage
-1. Upon running the program, you will be presented with a menu of options:
-   - Arrival of a vehicle
-   - Total number of vehicles parked
-   - Departure of vehicle
-   - Total amount collected
-   - Display
-   - Exit
+* **Role-Based Access Control**
 
-2. Choose an option by entering the corresponding number.
+  * Admin and Staff login
+  * Password masking
+  * Change password functionality
+  * Security lockout after failed attempts
 
-3. Follow the prompts to perform the desired operation:
-   - Add vehicles (car or bike) to the parking lot.
-   - Check the total number of cars and bikes parked.
-   - Remove a vehicle from the parking lot upon departure.
-   - View the total amount collected from parking.
-   - Display details of parked vehicles.
+* **Vehicle Management**
 
-4. Exit the program when done.
+  * Add new vehicles (Car/Bike)
+  * Auto-generated token system
+  * Duplicate vehicle detection
+  * Number plate format validation (Regex-based)
+  * Batch checkout with confirmation
 
-## Implementation Details
-- The program uses vectors to store information about parked vehicles.
-- It utilizes file I/O to save and read vehicle data to and from files (`file1.dat` and `file2.dat`).
-- Vehicles are represented by classes `vehicle`, `date`, and `time`.
-- The main functionality includes adding vehicles, calculating total collections, displaying vehicle details, and deleting vehicles.
-- The system supports both car and bike parking.
+* **Smart Fare Calculation**
 
+  * Time-based duration computation
+  * Automatic hourly rounding
+  * Rush hour pricing logic (09:00–11:00 & 17:00–20:00)
+  * Separate rates for cars and bikes
+
+* **Data Persistence**
+
+  * File storage (`parking_data.txt`)
+  * Automatic load on startup
+  * Continuous data saving after updates
+
+* **Reporting & Search**
+
+  * Search vehicle by token
+  * Full parking report
+  * Revenue summary
+  * Car/Bike count breakdown
+
+* **Input Validation**
+
+  * Date validation with leap year handling
+  * Time validation
+  * Numeric input validation
+  * Structured console UI layout
+
+---
+
+### 🧠 Technical Highlights
+
+* Object-Oriented Design
+  Classes: `Vehicle`, `Time`, `Date`, `SecuritySystem`, `ParkingSystem`
+* STL usage: `vector`, `algorithm`, `regex`, `sstream`
+* Windows-specific enhancements:
+
+  * `_getch()` for masked password input
+  * `Sleep()` for UI transitions
+  * `system("cls")` for screen control
+
+---
+
+### 📌 Pricing Model
+
+| Type | Normal (Per Hour) | Rush Hour (Per Hour) |
+| ---- | ----------------- | -------------------- |
+| Bike | Rs 10             | Rs 15                |
+| Car  | Rs 20             | Rs 30                |
+
+Rush Hours:
+
+* 09:00 – 11:00
+* 17:00 – 20:00
+
+---
+
+### 🛠 Technologies Used
+
+* C++17
+* Standard Template Library (STL)
+* File Handling
+* Regex Validation
+* Windows Console API
+
+---
+
+### 🎯 Use Case
+
+Ideal for:
+
+* Academic mini-projects
+* OOP practice
+* File handling demonstrations
+* Console UI design practice
+* Logic-heavy system simulations
+
+---
+
+A structured, real-world inspired parking solution that blends OOP principles, validation logic, security handling, and file persistence into one cohesive console-based system.
